@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+import os  # This is a standard library, no need to install it
 import random
 import time
 
@@ -18,6 +19,9 @@ st.markdown("Generate effective prompts for your AI projects using OpenAI's GPT 
 with st.sidebar:
     st.header("Settings")
     api_key = st.text_input("Enter your OpenAI API key", type="password")
+    # You can also use an environment variable for the API key
+    # api_key = api_key or os.environ.get("OPENAI_API_KEY", "")
+    
     model = st.selectbox(
         "Select GPT model",
         ["gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo"]
